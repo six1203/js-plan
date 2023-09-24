@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<h1>我的第一个web页面</h1>-->
+<!--<p>我的第一个段落</p>-->
+
+<!--<script >document.write(Date())</script>-->
+
+<!--<input id="id1" type="number" min="100" max="300" required>-->
+<!--<button onclick="myFunction()">点我</button>-->
+
+<!--<p id="demo2"></p>-->
+<!--<p id="demo1"></p>-->
+
+<!--<form name="myForm" action="demo_from.php" onsubmit="return validateForm()" method="post">-->
+<!--    名字：<input type="text" name="fname">-->
+<!--    <input type="submit" value="提交">-->
+<!--</form>-->
+
+<p><strong>以下内容是通过异步请求获取的：</strong></p>
+<p id="demo"></p>
+
+<script>
+
+    //    function myFunction() {
+    //        document.write(Date())
+    //    }
+
+    // function validateForm() {
+    //     var x = document.forms["myForm"]["fname"].value;
+    //     if (x == null || x == "") {
+    //         alert("需要输入名字。")
+    //         return false;
+    //     }
+    // }
+
+
+    // function myFunction() {
+    //     const x = document.getElementById("id1");
+    //     console.log(x.checkValidity())
+    //     if (x.checkValidity() == false) {
+    //         console.log(x.validationMessage)
+    //         document.getElementById("demo").innerHTML = x.validationMessage
+    //     }else {
+    //         alert("nb")
+    //     }
+    // }
+
+    // setTimeout(function () {
+    //     document.getElementById("demo1").innerHTML = "RUNOOB!";
+    // }, 3000);
+    //
+    // document.getElementById("demo2").innerHTML = "RUNOOB2!"
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.onload = function () {
+        document.getElementById("demo").innerHTML = xhr.responseText;
+    }
+
+    xhr.onerror = function () {
+        document.getElementById("demo").innerHTML = "请求出错";
+    }
+
+    xhr.open("GET", "https://www.runoob.com/try/ajax/ajax_info.txt", true)
+    xhr.send();
+</script>
+</body>
+</html>
